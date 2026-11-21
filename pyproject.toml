@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oh-my-elagent"
+version = "0.1.0"
+description = "A minimal, fast terminal coding agent."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "oh-my-ELA" }]
+keywords = ["agent", "cli", "coding", "openai"]
+dependencies = [
+    "openai>=1.40",
+    "prompt-toolkit>=3.0.43",
+    "tiktoken>=0.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+ela = "ela.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ela*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
